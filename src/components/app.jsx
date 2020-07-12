@@ -5,9 +5,19 @@ import GifList from './gif_list';
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      gifs: [],
+      selectedGifId: "JPyhlZpGdLQeeUECbC"
+    };
+  }
+
+  search(query) {
+    //todo : api
+    fetch()
+      .then(reponse => response.json())
+      .then(data => console.log(data))
   }
 
   render() {
@@ -15,16 +25,18 @@ class App extends Component {
       { id: "JPyhlZpGdLQeeUECbC" },
       { id: "JPyhlZpGdLQeeUECbC" },
     ];
+
+
     return (
       <div>
         <div className="left-scene">
           <SearchBar />
           <div className="selected-gif">
-            <Gif id="JPyhlZpGdLQeeUECbC" />
+            <Gif id={this.state.selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={gifs} />
+          <GifList gifs={this.state.gifs} />
         </div>
       </div>
     );
