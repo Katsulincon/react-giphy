@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   search = (query) => {
+    console.log(query);
     giphy('N3MQmkpiPW1NnwLkPJXgUN00RvOYQ3pq').search({
       q: query,
       rating: 'g',
@@ -25,6 +26,11 @@ class App extends Component {
         gifs: result.data
       });
     });
+  }
+
+  //working on it
+  handleClick = (event) => {
+    console.log(event.target);
   }
 
   render() {
