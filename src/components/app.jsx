@@ -28,9 +28,9 @@ class App extends Component {
     });
   }
 
-  //working on it
   handleClick = (event) => {
-    console.log(event.target);
+    console.log(event.target.id);
+    this.setState({ selectedGifId: event.target.id });
   }
 
   render() {
@@ -43,7 +43,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} handleClick={this.handleClick} />
         </div>
       </div>
     );
