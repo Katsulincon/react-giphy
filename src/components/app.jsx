@@ -20,7 +20,7 @@ class App extends Component {
     giphy('N3MQmkpiPW1NnwLkPJXgUN00RvOYQ3pq').search({
       q: query,
       rating: 'g',
-      limit: 10
+      limit: 20
     }, (error, result) => {
       this.setState({
         gifs: result.data
@@ -31,6 +31,10 @@ class App extends Component {
   handleClick = (event) => {
     console.log(event.target.id);
     this.setState({ selectedGifId: event.target.id });
+  }
+
+  componentDidMount() {
+    this.search('Homer Simpson');
   }
 
   render() {
